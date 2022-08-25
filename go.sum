@@ -1,0 +1,4 @@
+github.com/god-pig/gateway v1.0.0-202206 h1:WQeXAuk0kOoMzPZvRlAzov1Lyjx39H8SDii3lyEvIqE=
+github.com/god-pig/gateway v1.0.0-202206/go.mod h1:FddkjuXAKhN3EJSidFlZLzi/aAYpfM5xEirsMAh5xcA=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
