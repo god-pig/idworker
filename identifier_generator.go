@@ -3,10 +3,10 @@ package idworker
 import "github.com/google/uuid"
 
 type IdentifierGenerator interface {
-	// 生成id
+	// NextId 生成id
 	NextId() (string, error)
 
-	// 生成uuid
+	// NextUUID 生成uuid
 	NextUUID() string
 }
 
