@@ -126,7 +126,7 @@ func NewSnowflake(inetAddress string) *Snowflake {
 	}
 }
 
-func (s *Snowflake) NextId() (string, error) {
+func (s *Snowflake) NextId() (int64, error) {
 	s.Lock()
 	defer s.Unlock()
 	timestamp := timeGen()
@@ -136,10 +136,10 @@ func (s *Snowflake) NextId() (string, error) {
 		if offset <= 5 {
 			timestamp = timeGen()
 			if timestamp < s.lastTimestamp {
-				return "", fmt.Errorf("clock moved backwards. refusing to generate id for %d milliseconds", offset)
+				return 0, fmt.Errorf("clock moved backwards. refusing to generate id for %d milliseconds", offset)
 			}
 		} else {
-			return "", fmt.Errorf("clock moved backwards. refusing to generate id for %d milliseconds", offset)
+			return 0, fmt.Errorf("clock moved backwards. refusing to generate id for %d milliseconds", offset)
 		}
 	}
 	if s.lastTimestamp == timestamp {
@@ -161,7 +161,7 @@ func (s *Snowflake) NextId() (string, error) {
 		s.datacenterId<<datacenterIdShift |
 		s.workerId<<workerIdShift |
 		s.sequence
-	return fmt.Sprintf("%d", id), nil
+	return id, nil
 }
 
 func tilNextMillis(lastTimestamp int64) int64 {

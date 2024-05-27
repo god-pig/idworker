@@ -4,7 +4,7 @@ import "github.com/google/uuid"
 
 type IdentifierGenerator interface {
 	// NextId 生成id
-	NextId() (string, error)
+	NextId() (int64, error)
 
 	// NextUUID 生成uuid
 	NextUUID() string
@@ -14,7 +14,7 @@ type DefaultIdentifierGenerator struct {
 	snowflake *Snowflake
 }
 
-func (d *DefaultIdentifierGenerator) NextId() (string, error) {
+func (d *DefaultIdentifierGenerator) NextId() (int64, error) {
 	return d.snowflake.NextId()
 }
 

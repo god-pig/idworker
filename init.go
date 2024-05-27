@@ -4,7 +4,7 @@ var (
 	defaultIdentifierGenerator = NewIdentifierGenerator()
 )
 
-func NextId() (string, error) {
+func NextId() (int64, error) {
 	return defaultIdentifierGenerator.NextId()
 }
 
